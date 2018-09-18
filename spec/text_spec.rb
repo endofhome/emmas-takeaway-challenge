@@ -8,13 +8,10 @@ describe Text do
 
   let(:order) { Order.new }
   let(:text) { described_class.new(order) }
-  let(:time) { double('Time') }
+  let(:time) { TimeStub.new }
 
   context "places text message" do
     it "outputs delivery message" do
-      allow(time).to receive(:hour).and_return(15)
-      allow(time).to receive(:min).and_return(37)
-
       expect( text.message(time) ).to eq("Thank you! Your order was placed and will be delivered before 16:37.")
     end
 
@@ -27,4 +24,19 @@ describe Text do
   # context "send text via Twilio" do
   #
   # end
+end
+
+class TimeStub
+
+  def initialize
+  end
+
+  def hour
+    15
+  end
+
+  def min
+    37
+  end
+
 end
