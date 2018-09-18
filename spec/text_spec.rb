@@ -14,8 +14,7 @@ describe Text do
       time = instance_double('Time')
       allow(time).to receive(:hour).and_return(15)
       allow(time).to receive(:min).and_return(37)
-      local_text = Text.new(order)
-      expect( local_text.message(time) ).to eq("Thank you! Your order was placed and will be delivered before 16:37.")
+      expect( text.message(time) ).to eq("Thank you! Your order was placed and will be delivered before 16:37.")
     end
 
 
