@@ -8,7 +8,7 @@ describe Text do
 
   let(:order) { Order.new }
   let(:text) { described_class.new(order) }
-  let(:time) { instance_double('Time') }
+  let(:time) { double('Time') }
 
   context "places text message" do
     it "outputs delivery message" do
