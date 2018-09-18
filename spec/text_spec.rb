@@ -11,10 +11,9 @@ describe Text do
 
   context "places text message" do
     it "outputs delivery message" do
-      time = Time.new
+      time = Time.new(2018, 11, 10, 11, 11)
       local_text = Text.new(order)
-      formatted_time = local_text.format_time(time)
-      expect( local_text.message(time) ).to eq("Thank you! Your order was placed and will be delivered before #{formatted_time}.")
+      expect( local_text.message(time) ).to eq("Thank you! Your order was placed and will be delivered before 12:11.")
     end
 
 
