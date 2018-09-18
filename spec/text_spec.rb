@@ -8,12 +8,13 @@ describe Text do
 
   let(:order) { Order.new }
   let(:text) { described_class.new(order) }
+  let(:time) { instance_double('Time') }
 
   context "places text message" do
     it "outputs delivery message" do
-      time = instance_double('Time')
       allow(time).to receive(:hour).and_return(15)
       allow(time).to receive(:min).and_return(37)
+
       expect( text.message(time) ).to eq("Thank you! Your order was placed and will be delivered before 16:37.")
     end
 
