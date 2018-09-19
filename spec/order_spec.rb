@@ -8,7 +8,8 @@ describe Order do
   context "records order" do
 
     it "outputs chosen items from menu" do
-      expect{ order.chosen_dishes("pickled vegetables", 2) }.to output("2 pickled vegetables added to your order\n").to_stdout
+      order.chosen_dishes("pickled vegetables", 2) 
+      expect(order.item["pickled vegetables"]).to eq(2)
     end
 
     it "outputs total of items from order" do

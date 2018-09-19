@@ -2,7 +2,7 @@ require_relative 'menu'
 
 class Order
 
-  attr_reader :add_total
+  attr_reader :item, :add_total
 
   def initialize(menu)
     @menu = menu
@@ -12,7 +12,6 @@ class Order
 
   def chosen_dishes(dish, quantity = 1)
     @item[dish] += quantity.to_i
-    puts "#{quantity} #{dish} added to your order"
   end
 
   def add_total
