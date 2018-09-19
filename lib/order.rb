@@ -4,8 +4,8 @@ class Order
 
   attr_reader :add_total
 
-  def initialize
-    @menu = Menu.new
+  def initialize(menu)
+    @menu = menu
     @item = Hash.new(0)
     # Hash.new(0) sets default value for any key to 0, while {} sets nil
   end
@@ -24,9 +24,6 @@ class Order
         end
       end
     end
-    # p total
+    total
   end
 end
-
-# order = Order.new
-# order.add_total

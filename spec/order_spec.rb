@@ -2,9 +2,8 @@ require 'order'
 
 describe Order do
 
-  let(:order) { described_class.new }
-  let(:menu_list) { double :mock_menu, :mock_menu_list => [{"pickled vegetables" => 2.95}, {"smoky huitlacoche, chilli sauce, vegan cheese, avocado and quesadillas" => 5.95}] }
-  # let(:chosen_item) { double :mock_chosen_dishes('pickled vegetables', 2) }
+  let(:menu) { double :menu }
+  let(:order) { described_class.new(menu) }
 
   context "records order" do
 
@@ -13,8 +12,10 @@ describe Order do
     end
 
     it "outputs total of items from order" do
-      order.chosen_dishes("pickled vegetables", 2)
-      expect(order.add_total).to eq(5.90)
+      allow(menu).to receive(:menu_list) { [{ "dingleberries" => 2.50 }] }
+
+      order.chosen_dishes("dingleberries", 2)
+      expect(order.add_total).to eq(5.00)
     end
   end
 end
